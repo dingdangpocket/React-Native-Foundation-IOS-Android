@@ -189,10 +189,6 @@ const App = () => {
   );
 };
 const styles = StyleSheet.create({
-  add: {
-    width: 50,
-    height: 50,
-  },
   container: {
     flex: 1,
   },
