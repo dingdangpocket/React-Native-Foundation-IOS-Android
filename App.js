@@ -1,5 +1,4 @@
-import React, { useContext, useEffect } from 'react';
-import { Image, StyleSheet, SafeAreaView } from 'react-native';
+import { StyleSheet, SafeAreaView, Animated } from 'react-native';
 import IncidentDescScreen from './src/screens/home/IncidentDescScreen';
 import TheoryDescScreen from './src/screens/home/TheoryDescScreen';
 import ImageSaveScreen from './src/screens/home/ImageSaveScreen';
@@ -20,8 +19,7 @@ import { Provider } from 'react-redux';
 import { Store } from './src/redux/store';
 import { ContextProvider } from "./src/context/ContextProvider";
 import { LogBox } from 'react-native';
-import { DiscoveryIconActive, DiscoveryIconUnActive, EventIconUnActive, EventIconActive, MineIconUnActive, MineIconActive, HomeIconActive,HomeIconUnActive } from "./src/icons"
-
+import { DiscoveryIconActive, DiscoveryIconUnActive, EventIconUnActive, EventIconActive, MineIconUnActive, MineIconActive, HomeIconActive, HomeIconUnActive } from "./src/icons"
 LogBox.ignoreLogs(['new NativeEventEmitter']);
 const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -108,7 +106,10 @@ const containStackRoutes = [
 const HomeTabs = () => {
   return (
     <Tab.Navigator
-      tabBarOptions={{ activeTintColor: 'rgba(10,10,10,0.95)', inactiveTintColor: "rgba(10,10,10,0.5)" }}
+      lazy={true}
+      tabBarOptions={{
+        activeTintColor: 'rgba(10,10,10,0.95)', inactiveTintColor: "rgba(10,10,10,0.5)", activeBackgroundColor: "rgba(10,10,10,0.2)", tabStyle: { borderRadius: 20 }
+      }}
       screenOptions={({ route }) => ({
         tabBarIcon: ({ focused }) => {
           let icon;
@@ -124,17 +125,19 @@ const HomeTabs = () => {
           return icon;
         },
       })}>
-      {HomeTabRoutes.map(item => {
-        return (
-          <Tab.Screen
-            key={item.name}
-            name={item.name}
-            options={{ title: item.option.title }}
-            component={item.component}
-          />
-        );
-      })}
-    </Tab.Navigator>
+      {
+        HomeTabRoutes.map(item => {
+          return (
+            <Tab.Screen
+              key={item.name}
+              name={item.name}
+              options={{ title: item.option.title }}
+              component={item.component}
+            />
+          );
+        })
+      }
+    </Tab.Navigator >
   );
 };
 

@@ -1,4 +1,4 @@
-import React, { useState, useContext, useEffect } from 'react';
+import { useState, useContext, useEffect, useRef } from 'react';
 import {
   View,
   Text,
@@ -8,12 +8,15 @@ import {
   TouchableOpacity,
   PermissionsAndroid,
   Alert,
+  Animated,
+  Button
 } from 'react-native';
 import Geolocation from '@react-native-community/geolocation';
 import { ContentContext } from "../../context/ContextProvider";
 import NavigationBar from 'react-native-navbar-color'
 const HomeTab = ({ navigation }) => {
   const { dispatch } = useContext(ContentContext);
+ 
   useEffect(() => {
     dispatch({
       type: "userRouterPermissions",
@@ -97,13 +100,12 @@ const HomeTab = ({ navigation }) => {
     }
   };
 
-
   const onReleaseRoute = () => {
     dispatch({
       type: "userRouterPermissions",
       payload: [],
     })
-    Alert.alert('提示',"路由释放成功,在Wechat页面中测试;",[
+    Alert.alert('提示', "路由释放成功,在Wechat页面中测试;", [
       { text: '确定' }
     ]);
   }
@@ -112,13 +114,13 @@ const HomeTab = ({ navigation }) => {
       type: "userRouterPermissions",
       payload: ["InfoScreen"],
     })
-    Alert.alert('提示',"路由锁定成功,在Wechat页面中测试;",[
+    Alert.alert('提示', "路由锁定成功,在Wechat页面中测试;", [
       { text: '确定' }
     ]);
   }
   return (
-    <View>
-      <ScrollView horizontal={false}>
+    <View style={{ flex: 1 }}>
+      <ScrollView horizontal={false} >
         <View style={styles.optionArea}>
           <ScrollView
             horizontal={true}
@@ -200,6 +202,7 @@ const HomeTab = ({ navigation }) => {
               onPress={onLockRoute}>
               <Text style={{ color: 'white' }}>锁定路由权限</Text>
             </TouchableOpacity>
+         
           </View>
         ) : null}
         {current == 1 ? <Text>精选</Text> : null}
@@ -294,4 +297,9 @@ const styles = StyleSheet.create({
     flexWrap: 'wrap',
     justifyContent: 'center',
   },
+
+  buttonRow: {
+    flexDirection: "row",
+    marginVertical: 16
+  }
 });
