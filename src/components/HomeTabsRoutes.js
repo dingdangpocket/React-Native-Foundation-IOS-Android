@@ -23,13 +23,13 @@ const Tab = createBottomTabNavigator();
 const IconSet = {
   activeHomeTab: <HomeIconActive width="70%" height="70%" />,
   activeCommunityTab: <CommunityIconActive width="69%" height="69%" />,
-  activeEventTab: <EventIconActive width="65%" height="65%" />,
-  activeAccountTab: <MineIconActive width="66%" height="66%" />,
+  activeEventTab: <EventIconActive width="76%" height="76%" />,
+  activeAccountTab: <MineIconActive width="75%" height="75%" />,
   activeDiscoveryTab: <DiscoveryIconActive width="72%" height="72%" />,
   unActiveHomeTab: <HomeIconUnActive width="82%" height="82%" />,
   unActiveCommunityTab: <CommunityIconUnActive width="65%" height="65%" />,
-  unActiveEventTab: <EventIconUnActive width="64%" height="64%" />,
-  unActiveAccountTab: <MineIconUnActive width="65%" height="65%" />,
+  unActiveEventTab: <EventIconUnActive width="75%" height="75%" />,
+  unActiveAccountTab: <MineIconUnActive width="69%" height="69%" />,
   unActiveDiscoveryTab: <DiscoveryIconUnActive width="84%" height="84%" />,
 };
 const HomeTabsRoutes = () => {
@@ -75,7 +75,7 @@ const HomeTabsRoutes = () => {
       tabBarOptions={{
         activeTintColor: 'rgba(10,10,10,0.9)',
         inactiveTintColor: 'rgba(10,10,10,0.5)',
-        labelStyle: {fontSize: 14},
+        labelStyle: {fontSize: 12},
         style: {height: 55},
         // activeBackgroundColor: "rgba(10,10,0,0.9)",
       }}
