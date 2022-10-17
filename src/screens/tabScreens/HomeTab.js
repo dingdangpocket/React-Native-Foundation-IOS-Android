@@ -11,12 +11,8 @@ import {
 } from 'react-native';
 import Geolocation from '@react-native-community/geolocation';
 import {ContentContext} from 'src/context/ContextProvider';
-import NavigationBar from 'react-native-navbar-color';
 const HomeTab = ({navigation}) => {
   const {dispatch} = useContext(ContentContext);
-  useEffect(() => {
-    NavigationBar.setColor('white');
-  }, []);
   const [current, setCurrent] = useState(0);
   const [optionList] = useState([
     {id: 0, content: '集成'},

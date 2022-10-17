@@ -1,4 +1,4 @@
-import {TouchableOpacity} from 'react-native';
+import {TouchableOpacity, View, SafeAreaView} from 'react-native';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import HomeTab from 'src/screens/tabScreens/HomeTab';
 import CommunityTab from 'src/screens/tabScreens/CommunityTab';
@@ -98,7 +98,7 @@ const HomeTabsRoutes = () => {
               title: item.option.title,
               tabBarBadge: item.tabBarBadge,
               tabBarBadgeStyle: {
-                maxWidth: 18,
+                maxWidth: 20,
                 maxHeight: 16,
                 fontSize: 9,
                 lineHeight: 15,
