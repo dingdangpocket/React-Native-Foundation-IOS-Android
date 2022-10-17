@@ -1,4 +1,4 @@
-import {useState, useContext, useEffect} from 'react';
+import {useState} from 'react';
 import {
   View,
   Text,
@@ -10,24 +10,7 @@ import {
   Alert,
 } from 'react-native';
 import Geolocation from '@react-native-community/geolocation';
-import {ContentContext} from 'src/context/ContextProvider';
-import NavigationBar from 'react-native-navbar-color';
 const HomeTab = ({navigation}) => {
-  const {dispatch} = useContext(ContentContext);
-  useEffect(() => {
-    if (Platform.OS === 'android') {
-      NavigationBar.setStatusBarColor('white');
-      NavigationBar.setStatusBarTheme('dark');
-      NavigationBar.setColor('white');
-    }
-    if (Platform.OS === 'ios') {
-      NavigationBar.setStatusBarTheme('dark');
-      dispatch({
-        type: 'safeAreaViewStatusAc',
-        payload: true,
-      });
-    }
-  }, []);
   const [current, setCurrent] = useState(0);
   const [optionList] = useState([
     {id: 0, content: '集成'},
