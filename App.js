@@ -115,7 +115,6 @@ const IconSetActive = {
 const HomeTabs = () => {
   return (
     <Tab.Navigator
-     
       tabBarOptions={{
         activeTintColor: 'rgba(10,10,10,0.95)', inactiveTintColor: "rgba(10,10,10,0.5)",
       }}
