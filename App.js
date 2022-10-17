@@ -102,27 +102,28 @@ const containStackRoutes = [
   ...CameraStackRoutes,
   ...ErrorStackRoutes
 ]
-
+const IconSetActive = {
+  HomeTab: <HomeIconActive width="70%" height="70%" />,
+  DiscoveryTab: <DiscoveryIconActive width="69%" height="69%" />,
+  EventTab: <EventIconActive width="65%" height="65%" />,
+  AccountTab: <MineIconActive width="66%" height="66%" />
+}
+const IconSetUnActive = {
+  HomeTab: <HomeIconUnActive width="82%" height="82%" />,
+  DiscoveryTab: <DiscoveryIconUnActive width="65%" height="65%" />,
+  EventTab: <EventIconUnActive width="64%" height="64%" />,
+  AccountTab: <MineIconUnActive width="65%" height="65%" />
+}
 const HomeTabs = () => {
   return (
     <Tab.Navigator
       lazy={true}
       tabBarOptions={{
-        activeTintColor: 'rgba(10,10,10,0.95)', inactiveTintColor: "rgba(10,10,10,0.5)", activeBackgroundColor: "rgba(10,10,10,0.2)", tabStyle: { borderRadius: 20 }
+        activeTintColor: 'rgba(10,10,10,0.95)', inactiveTintColor: "rgba(10,10,10,0.5)",
       }}
       screenOptions={({ route }) => ({
         tabBarIcon: ({ focused }) => {
-          let icon;
-          if (route.name === 'HomeTab') {
-            icon = focused ? <HomeIconActive width="70%" height="70%" /> : <HomeIconUnActive width="82%" height="82%" />;
-          } else if (route.name === 'DiscoveryTab') {
-            icon = focused ? <DiscoveryIconActive width="69%" height="69%" /> : <DiscoveryIconUnActive width="65%" height="65%" />;
-          } else if (route.name == 'EventTab') {
-            icon = focused ? <EventIconActive width="65%" height="65%" /> : <EventIconUnActive width="64%" height="64%" />;
-          } else if (route.name == 'AccountTab') {
-            icon = focused ? <MineIconActive width="66%" height="66%" /> : <MineIconUnActive width="65%" height="65%" />;
-          }
-          return icon;
+          return focused ? IconSetActive[route.name] : IconSetUnActive[route.name];
         },
       })}>
       {
