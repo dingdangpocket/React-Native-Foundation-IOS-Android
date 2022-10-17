@@ -103,27 +103,25 @@ const containStackRoutes = [
   ...ErrorStackRoutes
 ]
 const IconSetActive = {
-  HomeTab: <HomeIconActive width="70%" height="70%" />,
-  DiscoveryTab: <DiscoveryIconActive width="69%" height="69%" />,
-  EventTab: <EventIconActive width="65%" height="65%" />,
-  AccountTab: <MineIconActive width="66%" height="66%" />
-}
-const IconSetUnActive = {
-  HomeTab: <HomeIconUnActive width="82%" height="82%" />,
-  DiscoveryTab: <DiscoveryIconUnActive width="65%" height="65%" />,
-  EventTab: <EventIconUnActive width="64%" height="64%" />,
-  AccountTab: <MineIconUnActive width="65%" height="65%" />
+  activeHomeTab: <HomeIconActive width="70%" height="70%" />,
+  activeDiscoveryTab: <DiscoveryIconActive width="69%" height="69%" />,
+  activeEventTab: <EventIconActive width="65%" height="65%" />,
+  activeAccountTab: <MineIconActive width="66%" height="66%" />,
+  unActiveHomeTab: <HomeIconUnActive width="82%" height="82%" />,
+  unActiveDiscoveryTab: <DiscoveryIconUnActive width="65%" height="65%" />,
+  unActiveEventTab: <EventIconUnActive width="64%" height="64%" />,
+  unActiveAccountTab: <MineIconUnActive width="65%" height="65%" />
 }
 const HomeTabs = () => {
   return (
     <Tab.Navigator
-      lazy={true}
+     
       tabBarOptions={{
         activeTintColor: 'rgba(10,10,10,0.95)', inactiveTintColor: "rgba(10,10,10,0.5)",
       }}
       screenOptions={({ route }) => ({
         tabBarIcon: ({ focused }) => {
-          return focused ? IconSetActive[route.name] : IconSetUnActive[route.name];
+          return focused ? IconSetActive["active" + route.name] : IconSetActive["unActive" + route.name];
         },
       })}>
       {
