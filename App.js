@@ -1,13 +1,5 @@
-import { StyleSheet, SafeAreaView, Animated } from 'react-native';
-import IncidentDescScreen from './src/screens/home/IncidentDescScreen';
-import TheoryDescScreen from './src/screens/home/TheoryDescScreen';
-import ImageSaveScreen from './src/screens/home/ImageSaveScreen';
-import ImagePicker from './src/screens/home/ImagePicker';
-import AudioScreen from './src/screens/home/AudioScreen';
+import { StyleSheet, SafeAreaView } from 'react-native';
 import Login from './src/screens/login/Login';
-import Error from './src/screens/error/Error';
-import StackScreen from './src/screens/storage/StackScreen';
-import InfoScreen from './src/screens/wechat/InfoScreen';
 import HomeTab from './src/screens/tabScreens/HomeTab';
 import DiscoveryTab from './src/screens/tabScreens/DiscoveryTab';
 import AccountTab from './src/screens/tabScreens/AccountTab';
