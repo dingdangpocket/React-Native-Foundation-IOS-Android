@@ -18,7 +18,7 @@ const linking = {
 };
 const RoutesNav = () => {
   return (
-    <SafeAreaView style={{flex: 1}}>
+    // <SafeAreaView style={{flex: 1}}>
       <NavigationContainer linking={linking}>
         <Stack.Navigator>
           {/* 将tab页装载在根节点Stack页面; */}
@@ -46,7 +46,7 @@ const RoutesNav = () => {
           })}
         </Stack.Navigator>
       </NavigationContainer>
-    </SafeAreaView>
+    // </SafeAreaView>
   );
 };
 export default RoutesNav;

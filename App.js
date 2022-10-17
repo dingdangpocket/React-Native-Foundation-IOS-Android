@@ -4,6 +4,7 @@ import {ContentContext} from 'src/context/ContextProvider';
 import RoutesNav from 'src/components/RoutesNav';
 import {LogBox} from 'react-native';
 LogBox.ignoreLogs(['new NativeEventEmitter']);
+
 const App = () => {
   const {state, dispatch} = useContext(ContentContext);
   useEffect(() => {
@@ -23,13 +24,23 @@ const App = () => {
       //轮询新数据;
     }, 1000);
     return () => clearInterval(Interval);
+    // NavigationBar.setColor('white')
   }, []);
   return (
     <View style={{flex: 1}}>
-      <SafeAreaView style={{flex: 0, backgroundColor: 'rgba(10,10,10,0.9)'}} />
+      {state.safeAreaViewStatus ? (
+        <SafeAreaView
+          style={{flex: 0, backgroundColor: 'rgba(255,255,255,0.7)'}}
+        />
+      ) : null}
       <RoutesNav />
-      <SafeAreaView style={{flex: 0, backgroundColor: 'rgba(10,10,10,0.95)'}} />
+      {state.safeAreaViewStatus ? (
+        <SafeAreaView
+          style={{flex: 0, backgroundColor: 'rgba(255,255,255,0.7)'}}
+        />
+      ) : null}
     </View>
   );
 };
+
 export default App;

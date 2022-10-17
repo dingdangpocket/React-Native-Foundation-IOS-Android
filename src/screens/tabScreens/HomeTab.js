@@ -19,13 +19,13 @@ const HomeTab = ({navigation}) => {
       NavigationBar.setStatusBarColor('white');
       NavigationBar.setStatusBarTheme('dark');
       NavigationBar.setColor('white');
+    }
+    if (Platform.OS === 'ios') {
+      NavigationBar.setStatusBarTheme('dark');
       dispatch({
         type: 'safeAreaViewStatusAc',
         payload: true,
       });
-    }
-    if (Platform.OS === 'ios') {
-      NavigationBar.setStatusBarTheme('dark');
     }
   }, []);
   const [current, setCurrent] = useState(0);
