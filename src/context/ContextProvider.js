@@ -29,6 +29,12 @@ const reducer = (state, action) => {
                 ...state,
                 communityTabBarBadge: action.payload,
             };
+        case "eventTab":
+            return {
+                ...state,
+                eventTabBarBadge: action.payload,
+            };
+
         default:
             return state;
     }
@@ -38,6 +44,8 @@ export const ContextProvider = ({ children }) => {
         colorValue: "",
         routerPermissions: "",
         communityTabBarBadge: null,
+        eventTabBarBadge: null,
+
     });
     return (
         <ContentContext.Provider value={{ state, dispatch }}>

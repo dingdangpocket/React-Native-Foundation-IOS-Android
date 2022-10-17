@@ -1,4 +1,6 @@
-import { TouchableOpacity } from 'react-native';
+import { useContext } from "react"
+import { TouchableOpacity, } from 'react-native';
+import { ContentContext } from "../context/ContextProvider";
 import { createStackNavigator } from '@react-navigation/stack';
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
@@ -10,9 +12,10 @@ import DiscoveryTab from '../screens/tabScreens/DiscoveryTab';
 import AccountTab from '../screens/tabScreens/AccountTab';
 import EventTab from '../screens/tabScreens/EventTab';
 import Login from '../screens/login/Login';
+import HomeTabRoutes from './HomeTabsRoutes';
 const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
-const HomeTabRoutes = [
+const HomeTabRoutesConfig = [
     {
         name: 'HomeTab',
         component: HomeTab,
@@ -111,6 +114,8 @@ const linking = {
     }
 };
 const RoutesNav = () => {
+    const { state, dispatch } = useContext(ContentContext);
+    console.log("state", state.communityTabBarBadge);
     return (
         <NavigationContainer
             linking={linking}>
@@ -123,7 +128,7 @@ const RoutesNav = () => {
                 />
                 <Stack.Screen
                     name="HomeTabs"
-                    component={HomeTabs}
+                    component={HomeTabRoutes}
                     options={{ header: () => null, title: '首页' }}
                 />
                 {containStackRoutes.map(item => {

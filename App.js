@@ -14,28 +14,20 @@ const App = () => {
         "InfoScreen",
       ],
     });
-    dispatch({
-      type: "communityTab",
-      payload: 10
-    });
+    const Interval = setInterval(() => {
+      dispatch({
+        type: "communityTab",
+        payload: 3 * Math.floor(Math.random() * 10) + 1
+      });
+      dispatch({
+        type: "eventTab",
+        payload: 3 * Math.floor(Math.random() * 10) + 1
+      });
+      //轮询新数据;
+    }, 1000)
+    return () => clearInterval(Interval);
     // NavigationBar.setColor('white')
   }, []);
-  //   useEffect(() => {
-  //     dispatch({
-  //         type: "userRouterPermissions",
-  //         payload: [
-  //             "InfoScreen",
-  //         ],
-  //     });
-  //     NavigationBar.setColor('white')
-  //     const Interval = setInterval(() => {
-  //         dispatch({
-  //             type: "communityTab",
-  //             payload: 10
-  //         });
-  //     }, 1000)
-  //     return () => clearInterval(Interval);
-  // }, []);
   return (
     <SafeAreaView style={styles.container}>
       <RoutesNav />
