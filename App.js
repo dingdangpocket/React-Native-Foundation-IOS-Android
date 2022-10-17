@@ -22,26 +22,31 @@ const HomeTabRoutes = [
     name: 'HomeTab',
     component: HomeTab,
     option: { title: '首页' },
+    tabBarBadge: "2",
   },
   {
     name: 'CommunityTab',
     component: CommunityTab,
     option: { title: '社区' },
+    tabBarBadge: "10",
   },
   {
     name: 'DiscoveryTab',
     component: DiscoveryTab,
     option: { title: '探索' },
+    tabBarBadge: "8",
   },
   {
     name: 'EventTab',
     component: EventTab,
     option: { title: '活动' },
+    tabBarBadge: "19",
   },
   {
     name: 'AccountTab',
     component: AccountTab,
     option: { title: '账户' },
+    tabBarBadge: null,
   },
 ];
 const IconSet = {
@@ -74,14 +79,6 @@ const HomeTabs = () => {
           return focused ? IconSet["active" + route.name] : IconSet["unActive" + route.name];
         },
         tabBarButton: (props) => <TouchableOpacity activeOpacity={0.85} {...props} />,
-        tabBarBadge: "1",
-        tabBarBadgeStyle: {
-          maxWidth: 15,
-          maxHeight: 15,
-          fontSize: 9,
-          lineHeight: 15,
-          backgroundColor: "rgba(255,51,0,0.9)"
-        }
       })}>
       {
         HomeTabRoutes.map(item => {
@@ -89,7 +86,16 @@ const HomeTabs = () => {
             <Tab.Screen
               key={item.name}
               name={item.name}
-              options={{ title: item.option.title }}
+              options={{
+                title: item.option.title, tabBarBadge: item.tabBarBadge,
+                tabBarBadgeStyle: {
+                  maxWidth: 17,
+                  maxHeight: 15,
+                  fontSize: 9,
+                  lineHeight: 15,
+                  backgroundColor: "rgba(255,51,0,0.9)"
+                }
+              }}
               component={item.component}
             />
           );
