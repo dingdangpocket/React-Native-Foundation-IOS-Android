@@ -55,7 +55,6 @@ const HomeTab = ({navigation}) => {
             message: '我们将访问您的地理位置,以此为你推荐相关路线',
           },
         );
-
         if (granted === PermissionsAndroid.RESULTS.GRANTED) {
           console.log('可以使用地理位置');
           return true;

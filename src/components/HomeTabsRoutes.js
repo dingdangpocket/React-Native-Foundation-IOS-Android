@@ -1,12 +1,13 @@
-import {TouchableOpacity, View, SafeAreaView} from 'react-native';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import HomeTab from 'src/screens/tabScreens/HomeTab';
 import CommunityTab from 'src/screens/tabScreens/CommunityTab';
 import DiscoveryTab from 'src/screens/tabScreens/DiscoveryTab';
 import AccountTab from 'src/screens/tabScreens/AccountTab';
 import EventTab from 'src/screens/tabScreens/EventTab';
-import {useContext} from 'react';
 import {ContentContext} from 'src/context/ContextProvider';
+import {Platform, TouchableOpacity} from 'react-native';
+import {useContext, useEffect} from 'react';
+import NavigationBar from 'react-native-navbar-color';
 import {
   DiscoveryIconActive,
   DiscoveryIconUnActive,
@@ -66,6 +67,21 @@ const HomeTabsRoutes = () => {
       tabBarBadge: null,
     },
   ];
+  const {dispatch} = useContext(ContentContext);
+  useEffect(() => {
+    if (Platform.OS === 'android') {
+      NavigationBar.setStatusBarColor('white');
+      NavigationBar.setStatusBarTheme('dark');
+      NavigationBar.setColor('white');
+    }
+    if (Platform.OS === 'ios') {
+      NavigationBar.setStatusBarTheme('dark');
+      dispatch({
+        type: 'safeAreaViewStatusAc',
+        payload: true,
+      });
+    }
+  }, []);
   return (
     <Tab.Navigator
       initialRouteName="DiscoveryTab"
