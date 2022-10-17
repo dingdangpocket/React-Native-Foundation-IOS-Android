@@ -1,6 +1,5 @@
 import React, {useEffect, useRef, useState} from 'react';
 import {View, Text, StyleSheet, Dimensions} from 'react-native';
-import {log} from 'react-native-reanimated';
 import {Camera, useCameraDevices} from 'react-native-vision-camera';
 const CameraTest = () => {
   const refCamera = useRef(null);
@@ -8,7 +7,6 @@ const CameraTest = () => {
   const device = devices.back;
   const [showCamera, setShowCamera] = useState(null);
   useEffect(() => {
-    console.log('1');
     const requestCameraPermission = async () => {
       const newCameraPermission = await Camera.requestCameraPermission();
       if (newCameraPermission == 'authorized') {

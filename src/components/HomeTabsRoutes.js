@@ -98,8 +98,8 @@ const HomeTabsRoutes = () => {
               title: item.option.title,
               tabBarBadge: item.tabBarBadge,
               tabBarBadgeStyle: {
-                maxWidth: 17,
-                maxHeight: 15,
+                maxWidth: 18,
+                maxHeight: 16,
                 fontSize: 9,
                 lineHeight: 15,
                 backgroundColor: 'rgba(255,51,0,0.9)',

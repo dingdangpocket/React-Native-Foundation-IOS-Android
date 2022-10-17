@@ -7,9 +7,11 @@ import {
   TouchableOpacity,
   Animated,
   Text,
+  LogBox,
 } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 const CommunityTab = ({navigation}) => {
+  LogBox.ignoreLogs(['Animated: `useNativeDriver`']);
   const fade = useRef(new Animated.Value(0)).current;
   const height = useRef(new Animated.Value(0)).current;
   const fadeIn = () => {
@@ -20,7 +22,7 @@ const CommunityTab = ({navigation}) => {
     }).start();
     Animated.timing(height, {
       toValue: 100,
-      duration: 300,
+      duration: 500,
       useAnimatedDriver: true,
     }).start();
   };
@@ -32,7 +34,7 @@ const CommunityTab = ({navigation}) => {
     }).start();
     Animated.timing(height, {
       toValue: 0,
-      duration: 300,
+      duration: 500,
       useAnimatedDriver: true,
     }).start();
   };
