@@ -9,10 +9,10 @@ import EventTab from './src/screens/tabScreens/EventTab';
 import { createStackNavigator } from '@react-navigation/stack';
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-
 import { LogBox } from 'react-native';
 import { DiscoveryIconActive, DiscoveryIconUnActive, CommunityIconActive, CommunityIconUnActive, EventIconUnActive, EventIconActive, MineIconUnActive, MineIconActive, HomeIconActive, HomeIconUnActive } from "./src/icons"
 import { containStackRoutes } from "./src/router/index"
+import { ContentContext } from "./src/context/ContextProvider";
 LogBox.ignoreLogs(['new NativeEventEmitter']);
 
 const Stack = createStackNavigator();
@@ -116,6 +116,16 @@ const linking = {
   }
 };
 const App = () => {
+  const { dispatch } = useContext(ContentContext);
+  useEffect(() => {
+    dispatch({
+      type: "userRouterPermissions",
+      payload: [
+        "InfoScreen",
+      ],
+    });
+    // NavigationBar.setColor('white')
+  }, []);
   return (
     <SafeAreaView style={styles.container}>
       <NavigationContainer

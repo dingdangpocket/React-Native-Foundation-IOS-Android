@@ -8,8 +8,6 @@ import {
   TouchableOpacity,
   PermissionsAndroid,
   Alert,
-  Animated,
-  Button
 } from 'react-native';
 import Geolocation from '@react-native-community/geolocation';
 import { ContentContext } from "../../context/ContextProvider";
@@ -17,12 +15,6 @@ import NavigationBar from 'react-native-navbar-color'
 const HomeTab = ({ navigation }) => {
   const { dispatch } = useContext(ContentContext);
   useEffect(() => {
-    dispatch({
-      type: "userRouterPermissions",
-      payload: [
-        "InfoScreen",
-      ],
-    });
     NavigationBar.setColor('white')
   }, []);
   const [current, setCurrent] = useState(0);
