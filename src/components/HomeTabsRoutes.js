@@ -1,16 +1,14 @@
 import { TouchableOpacity, } from 'react-native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import HomeTab from '../screens/tabScreens/HomeTab';
-import CommunityTab from '../screens/tabScreens/CommunityTab';
-import DiscoveryTab from '../screens/tabScreens/DiscoveryTab';
-import AccountTab from '../screens/tabScreens/AccountTab';
-import EventTab from '../screens/tabScreens/EventTab';
+import HomeTab from 'src/screens/tabScreens/HomeTab';
+import CommunityTab from 'src/screens/tabScreens/CommunityTab';
+import DiscoveryTab from 'src/screens/tabScreens/DiscoveryTab';
+import AccountTab from 'src/screens/tabScreens/AccountTab';
+import EventTab from 'src/screens/tabScreens/EventTab';
 import { useContext } from "react"
-import { ContentContext } from "../context/ContextProvider";
+import { ContentContext } from "src/context/ContextProvider";
 import { DiscoveryIconActive, DiscoveryIconUnActive, CommunityIconActive, CommunityIconUnActive, EventIconUnActive, EventIconActive, MineIconUnActive, MineIconActive, HomeIconActive, HomeIconUnActive } from "../icons"
-
 const Tab = createBottomTabNavigator();
-
 const IconSet = {
     activeHomeTab: <HomeIconActive width="70%" height="70%" />,
     activeCommunityTab: <CommunityIconActive width="69%" height="69%" />,
@@ -24,8 +22,7 @@ const IconSet = {
     activeDiscoveryTab: <DiscoveryIconActive width="78%" height="78%" />
 }
 const HomeTabsRoutes = () => {
-    const { state, dispatch } = useContext(ContentContext);
-    console.log("state", state.communityTabBarBadge);
+    const { state } = useContext(ContentContext);
     const HomeTabRoutesConfig = [
         {
             name: 'HomeTab',

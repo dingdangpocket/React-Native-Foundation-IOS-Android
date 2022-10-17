@@ -1,4 +1,4 @@
-import { useState, useContext, useEffect, useRef } from 'react';
+import { useState, useContext, useEffect } from 'react';
 import {
   View,
   Text,
@@ -10,7 +10,7 @@ import {
   Alert,
 } from 'react-native';
 import Geolocation from '@react-native-community/geolocation';
-import { ContentContext } from "../../context/ContextProvider";
+import { ContentContext } from "src/context/ContextProvider";
 import NavigationBar from 'react-native-navbar-color'
 const HomeTab = ({ navigation }) => {
   const { dispatch } = useContext(ContentContext);

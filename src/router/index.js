@@ -1,11 +1,11 @@
-import IncidentDescScreen from '../screens/home/IncidentDescScreen';
-import TheoryDescScreen from '../screens/home/TheoryDescScreen';
-import ImageSaveScreen from '../screens/home/ImageSaveScreen';
-import ImagePicker from '../screens/home/ImagePicker';
-import AudioScreen from '../screens/home/AudioScreen';
-import Error from '../screens/error/Error';
-import StackScreen from '../screens/storage/StackScreen';
-import InfoScreen from '../screens/wechat/InfoScreen';
+import IncidentDescScreen from 'src/screens/home/IncidentDescScreen';
+import TheoryDescScreen from 'src/screens/home/TheoryDescScreen';
+import ImageSaveScreen from 'src/screens/home/ImageSaveScreen';
+import ImagePicker from 'src/screens/home/ImagePicker';
+import AudioScreen from 'src/screens/home/AudioScreen';
+import Error from 'src/screens/error/Error';
+import StackScreen from 'src/screens/storage/StackScreen';
+import InfoScreen from 'src/screens/wechat/InfoScreen';
 const StorageStackRoutes = [
     {
         name: 'StackScreen',

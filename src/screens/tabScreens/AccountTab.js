@@ -11,8 +11,8 @@ import {
   Linking
 } from 'react-native';
 import * as WeChat from 'react-native-wechat-lib';
-import wrapNavigationAuthRoute from "../../functions/wrapNavigationAuthRoute"
-import { ContentContext } from "../../context/ContextProvider";
+import wrapNavigationAuthRoute from "src/functions/wrapNavigationAuthRoute"
+import { ContentContext } from "src/context/ContextProvider";
 
 const WechatTab = ({ navigation }) => {
   const [appid] = useState("wx9013ae9aee782bfc");

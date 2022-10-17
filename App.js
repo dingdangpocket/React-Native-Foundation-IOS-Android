@@ -1,7 +1,7 @@
 import { StyleSheet, SafeAreaView, TouchableOpacity } from 'react-native';
 import { useContext, useEffect } from "react"
-import { ContentContext } from "./src/context/ContextProvider";
-import RoutesNav from "./src/components/RoutesNav"
+import { ContentContext } from "src/context/ContextProvider";
+import RoutesNav from "src/components/RoutesNav"
 import { LogBox } from 'react-native';
 LogBox.ignoreLogs(['new NativeEventEmitter']);
 
