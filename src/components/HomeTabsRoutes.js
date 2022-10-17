@@ -25,12 +25,12 @@ const IconSet = {
   activeCommunityTab: <CommunityIconActive width="69%" height="69%" />,
   activeEventTab: <EventIconActive width="65%" height="65%" />,
   activeAccountTab: <MineIconActive width="66%" height="66%" />,
+  activeDiscoveryTab: <DiscoveryIconActive width="72%" height="72%" />,
   unActiveHomeTab: <HomeIconUnActive width="82%" height="82%" />,
   unActiveCommunityTab: <CommunityIconUnActive width="65%" height="65%" />,
   unActiveEventTab: <EventIconUnActive width="64%" height="64%" />,
   unActiveAccountTab: <MineIconUnActive width="65%" height="65%" />,
-  unActiveDiscoveryTab: <DiscoveryIconUnActive width="75%" height="75%" />,
-  activeDiscoveryTab: <DiscoveryIconActive width="78%" height="78%" />,
+  unActiveDiscoveryTab: <DiscoveryIconUnActive width="84%" height="84%" />,
 };
 const HomeTabsRoutes = () => {
   const {state} = useContext(ContentContext);
