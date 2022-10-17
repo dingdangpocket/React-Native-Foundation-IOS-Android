@@ -70,6 +70,7 @@ const HomeTabsRoutes = () => {
     <Tab.Navigator
       initialRouteName="DiscoveryTab"
       detachInactiveScreens={false}
+      lazy={false}
       // sceneContainerStyle={{backgroundColor:"red"}}
       tabBarOptions={{
         activeTintColor: 'rgba(10,10,10,0.9)',

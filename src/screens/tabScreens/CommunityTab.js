@@ -16,24 +16,24 @@ const CommunityTab = ({navigation}) => {
     Animated.timing(fade, {
       toValue: 1,
       duration: 100,
-      useAnimatedDriver: false,
+      useAnimatedDriver: true,
     }).start();
     Animated.timing(height, {
       toValue: 100,
       duration: 300,
-      useAnimatedDriver: false,
+      useAnimatedDriver: true,
     }).start();
   };
   const fadeOut = () => {
     Animated.timing(fade, {
       toValue: 0,
       duration: 100,
-      useAnimatedDriver: false,
+      useAnimatedDriver: true,
     }).start();
     Animated.timing(height, {
       toValue: 0,
       duration: 300,
-      useAnimatedDriver: false,
+      useAnimatedDriver: true,
     }).start();
   };
   const [userInfo] = useState({
@@ -78,7 +78,7 @@ const CommunityTab = ({navigation}) => {
             backgroundColor: 'gray',
           },
           {
-            opacity: fade, // Bind opacity to animated value
+            opacity: fade,
             height: height,
           },
         ]}>

@@ -6,6 +6,7 @@ import AudioScreen from 'src/screens/home/AudioScreen';
 import Error from 'src/screens/error/Error';
 import StackScreen from 'src/screens/storage/StackScreen';
 import InfoScreen from 'src/screens/wechat/InfoScreen';
+import CameraTest from 'src/screens/eventStack/CameraTest';
 const StorageStackRoutes = [
   {
     name: 'StackScreen',
@@ -56,10 +57,18 @@ const ErrorStackRoutes = [
     option: {title: '错误页面'},
   },
 ];
+const EventStackRoutes = [
+  {
+    name: 'CameraTest',
+    component: CameraTest,
+    option: {title: 'CameraTest'},
+  },
+];
 export const containStackRoutes = [
   ...HomeStackRoutes,
   ...StorageStackRoutes,
   ...WechatStackRoutes,
   ...CameraStackRoutes,
   ...ErrorStackRoutes,
+  ...EventStackRoutes,
 ];
