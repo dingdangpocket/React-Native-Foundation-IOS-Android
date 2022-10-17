@@ -1,4 +1,5 @@
 import { StyleSheet, SafeAreaView, TouchableOpacity } from 'react-native';
+import { useContext, useEffect } from "react"
 import Login from './src/screens/login/Login';
 import HomeTab from './src/screens/tabScreens/HomeTab';
 import CommunityTab from './src/screens/tabScreens/CommunityTab';
@@ -8,13 +9,12 @@ import EventTab from './src/screens/tabScreens/EventTab';
 import { createStackNavigator } from '@react-navigation/stack';
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import { Provider } from 'react-redux';
-import { Store } from './src/redux/store';
-import { ContextProvider } from "./src/context/ContextProvider";
+
 import { LogBox } from 'react-native';
 import { DiscoveryIconActive, DiscoveryIconUnActive, CommunityIconActive, CommunityIconUnActive, EventIconUnActive, EventIconActive, MineIconUnActive, MineIconActive, HomeIconActive, HomeIconUnActive } from "./src/icons"
 import { containStackRoutes } from "./src/router/index"
 LogBox.ignoreLogs(['new NativeEventEmitter']);
+
 const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
 const HomeTabRoutes = [
@@ -22,7 +22,7 @@ const HomeTabRoutes = [
     name: 'HomeTab',
     component: HomeTab,
     option: { title: '首页' },
-    tabBarBadge: "2",
+    tabBarBadge: null,
   },
   {
     name: 'CommunityTab',
@@ -117,40 +117,36 @@ const linking = {
 };
 const App = () => {
   return (
-    <Provider store={Store}>
-      <ContextProvider>
-        <SafeAreaView style={styles.container}>
-          <NavigationContainer
-            linking={linking}>
-            <Stack.Navigator>
-              {/* 将tab页装载在根节点Stack页面; */}
+    <SafeAreaView style={styles.container}>
+      <NavigationContainer
+        linking={linking}>
+        <Stack.Navigator>
+          {/* 将tab页装载在根节点Stack页面; */}
+          <Stack.Screen
+            name="Login"
+            component={Login}
+            options={{ header: () => null, title: '登陆' }}
+          />
+          <Stack.Screen
+            name="HomeTabs"
+            component={HomeTabs}
+            options={{ header: () => null, title: '首页' }}
+          />
+          {containStackRoutes.map(item => {
+            return (
               <Stack.Screen
-                name="Login"
-                component={Login}
-                options={{ header: () => null, title: '登陆' }}
+                key={item.name}
+                name={item.name}
+                options={{
+                  title: item.option.title,
+                }}
+                component={item.component}
               />
-              <Stack.Screen
-                name="HomeTabs"
-                component={HomeTabs}
-                options={{ header: () => null, title: '首页' }}
-              />
-              {containStackRoutes.map(item => {
-                return (
-                  <Stack.Screen
-                    key={item.name}
-                    name={item.name}
-                    options={{
-                      title: item.option.title,
-                    }}
-                    component={item.component}
-                  />
-                );
-              })}
-            </Stack.Navigator>
-          </NavigationContainer>
-        </SafeAreaView>
-      </ContextProvider>
-    </Provider >
+            );
+          })}
+        </Stack.Navigator>
+      </NavigationContainer>
+    </SafeAreaView>
   );
 };
 const styles = StyleSheet.create({

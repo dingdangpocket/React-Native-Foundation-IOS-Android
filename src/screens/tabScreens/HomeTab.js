@@ -16,7 +16,6 @@ import { ContentContext } from "../../context/ContextProvider";
 import NavigationBar from 'react-native-navbar-color'
 const HomeTab = ({ navigation }) => {
   const { dispatch } = useContext(ContentContext);
- 
   useEffect(() => {
     dispatch({
       type: "userRouterPermissions",
@@ -202,7 +201,7 @@ const HomeTab = ({ navigation }) => {
               onPress={onLockRoute}>
               <Text style={{ color: 'white' }}>锁定路由权限</Text>
             </TouchableOpacity>
-         
+
           </View>
         ) : null}
         {current == 1 ? <Text>精选</Text> : null}

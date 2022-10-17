@@ -1,5 +1,5 @@
 
-import { useReducer } from "react";
+import React, { useReducer } from "react";
 import { createContext } from "react";
 export const ContentContext = createContext({});
 const reducer = (state, action) => {
@@ -24,6 +24,11 @@ const reducer = (state, action) => {
                 ...state,
                 routerConfig: action.payload,
             };
+        case "communityTab":
+            return {
+                ...state,
+                communityTabBarBadge: action.payload,
+            };
         default:
             return state;
     }
@@ -32,6 +37,7 @@ export const ContextProvider = ({ children }) => {
     const [state, dispatch] = useReducer(reducer, {
         colorValue: "",
         routerPermissions: "",
+        communityTabBarBadge: null,
     });
     return (
         <ContentContext.Provider value={{ state, dispatch }}>
