@@ -3,6 +3,7 @@ import {NavigationContainer} from '@react-navigation/native';
 import {containStackRoutes} from 'src/router/index';
 import Login from 'src/screens/login/Login';
 import HomeTabRoutes from 'src/components/HomeTabsRoutes';
+import {SafeAreaView} from 'react-native';
 const Stack = createStackNavigator();
 const linking = {
   prefixes: ['foundation://'],

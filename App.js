@@ -1,4 +1,4 @@
-import {SafeAreaView} from 'react-native';
+import {SafeAreaView, View} from 'react-native';
 import {useContext, useEffect} from 'react';
 import {ContentContext} from 'src/context/ContextProvider';
 import RoutesNav from 'src/components/RoutesNav';
@@ -27,9 +27,11 @@ const App = () => {
     // NavigationBar.setColor('white')
   }, []);
   return (
-    <SafeAreaView style={{flex: 1}}>
+    <View style={{flex: 1}}>
+      <SafeAreaView style={{flex: 0, backgroundColor: 'rgba(10,10,10,0.1)'}} />
       <RoutesNav />
-    </SafeAreaView>
+      <SafeAreaView style={{flex: 0, backgroundColor: 'rgba(10,10,10,1)'}} />
+    </View>
   );
 };
 
