@@ -20,6 +20,7 @@ import { Store } from './src/redux/store';
 import { ContextProvider } from "./src/context/ContextProvider";
 import { LogBox } from 'react-native';
 import { DiscoveryIconActive, DiscoveryIconUnActive, EventIconUnActive, EventIconActive, MineIconUnActive, MineIconActive, HomeIconActive, HomeIconUnActive } from "./src/icons"
+import { containStackRoutes } from "./src/router/index"
 LogBox.ignoreLogs(['new NativeEventEmitter']);
 const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -45,64 +46,7 @@ const HomeTabRoutes = [
     option: { title: '账户' },
   },
 ];
-const StorageStackRoutes = [
-  {
-    name: 'StackScreen',
-    component: StackScreen,
-    option: { title: 'StackPages' },
-  }
-];
-const HomeStackRoutes = [
-  {
-    name: 'TheoryDescScreen',
-    component: TheoryDescScreen,
-    option: { title: 'WebView网页' },
-  },
-  {
-    name: 'IncidentDescScreen',
-    component: IncidentDescScreen,
-    option: { title: '视频集成' },
-  },
-  {
-    name: 'AudioScreen',
-    component: AudioScreen,
-    option: { title: '音频集成' },
-  },
-  {
-    name: 'ImagePicker',
-    component: ImagePicker,
-    option: { title: '访问相机集成' },
-  },
-
-  {
-    name: 'ImageSaveScreen',
-    component: ImageSaveScreen,
-    option: { title: '图片保存' },
-  }
-];
-const CameraStackRoutes = [];
-const WechatStackRoutes = [
-  {
-    name: 'InfoScreen',
-    component: InfoScreen,
-    option: { title: 'InfoScreen' },
-  }
-];
-const ErrorStackRoutes = [
-  {
-    name: 'Error',
-    component: Error,
-    option: { title: '错误页面' },
-  }
-];
-const containStackRoutes = [
-  ...HomeStackRoutes,
-  ...StorageStackRoutes,
-  ...WechatStackRoutes,
-  ...CameraStackRoutes,
-  ...ErrorStackRoutes
-]
-const IconSetActive = {
+const IconSet = {
   activeHomeTab: <HomeIconActive width="70%" height="70%" />,
   activeDiscoveryTab: <DiscoveryIconActive width="69%" height="69%" />,
   activeEventTab: <EventIconActive width="65%" height="65%" />,
@@ -120,7 +64,7 @@ const HomeTabs = () => {
       }}
       screenOptions={({ route }) => ({
         tabBarIcon: ({ focused }) => {
-          return focused ? IconSetActive["active" + route.name] : IconSetActive["unActive" + route.name];
+          return focused ? IconSet["active" + route.name] : IconSet["unActive" + route.name];
         },
       })}>
       {
