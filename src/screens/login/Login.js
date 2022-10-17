@@ -22,7 +22,14 @@ const Login = () => {
   const [btnContent, setBtnContent] = useState('获取验证码');
   const [initIntercept, setInitIntercept] = useState(false);
   useEffect(() => {
-    NavigationBar.setColor('#000000');
+    if (Platform.OS === 'android') {
+      NavigationBar.setStatusBarColor('black');
+      NavigationBar.setStatusBarTheme('light');
+      NavigationBar.setColor('black');
+    }
+    if (Platform.OS === 'ios') {
+      NavigationBar.setStatusBarTheme('light');
+    }
   }, []);
   useEffect(() => {
     if (initIntercept) {

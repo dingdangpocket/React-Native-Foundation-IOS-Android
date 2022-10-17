@@ -67,49 +67,53 @@ const HomeTabsRoutes = () => {
     },
   ];
   return (
-    <Tab.Navigator
-      initialRouteName="DiscoveryTab"
-      detachInactiveScreens={false}
-      lazy={false}
-      // sceneContainerStyle={{backgroundColor:"red"}}
-      tabBarOptions={{
-        activeTintColor: 'rgba(10,10,10,0.9)',
-        inactiveTintColor: 'rgba(10,10,10,0.5)',
-        labelStyle: {fontSize: 12},
-        style: {height: 55},
-        // activeBackgroundColor: "rgba(10,10,0,0.9)",
-      }}
-      screenOptions={({route}) => ({
-        tabBarIcon: ({focused}) => {
-          return focused
-            ? IconSet['active' + route.name]
-            : IconSet['unActive' + route.name];
-        },
-        tabBarButton: props => (
-          <TouchableOpacity activeOpacity={0.85} {...props} />
-        ),
-      })}>
-      {HomeTabRoutesConfig.map(item => {
-        return (
-          <Tab.Screen
-            key={item.name}
-            name={item.name}
-            options={{
-              title: item.option.title,
-              tabBarBadge: item.tabBarBadge,
-              tabBarBadgeStyle: {
-                maxWidth: 20,
-                maxHeight: 16,
-                fontSize: 9,
-                lineHeight: 15,
-                backgroundColor: 'rgba(255,51,0,0.9)',
-              },
-            }}
-            component={item.component}
-          />
-        );
-      })}
-    </Tab.Navigator>
+    // <View style={{flex: 1}}>
+    //   <SafeAreaView style={{flex: 1}}>
+        <Tab.Navigator
+          initialRouteName="DiscoveryTab"
+          detachInactiveScreens={false}
+          lazy={false}
+          // sceneContainerStyle={{backgroundColor:"red"}}
+          tabBarOptions={{
+            activeTintColor: 'rgba(10,10,10,0.9)',
+            inactiveTintColor: 'rgba(10,10,10,0.5)',
+            labelStyle: {fontSize: 12},
+            style: {height: 55},
+            // activeBackgroundColor: "rgba(10,10,0,0.9)",
+          }}
+          screenOptions={({route}) => ({
+            tabBarIcon: ({focused}) => {
+              return focused
+                ? IconSet['active' + route.name]
+                : IconSet['unActive' + route.name];
+            },
+            tabBarButton: props => (
+              <TouchableOpacity activeOpacity={0.85} {...props} />
+            ),
+          })}>
+          {HomeTabRoutesConfig.map(item => {
+            return (
+              <Tab.Screen
+                key={item.name}
+                name={item.name}
+                options={{
+                  title: item.option.title,
+                  tabBarBadge: item.tabBarBadge,
+                  tabBarBadgeStyle: {
+                    maxWidth: 20,
+                    maxHeight: 16,
+                    fontSize: 9,
+                    lineHeight: 15,
+                    backgroundColor: 'rgba(255,51,0,0.9)',
+                  },
+                }}
+                component={item.component}
+              />
+            );
+          })}
+        </Tab.Navigator>
+    //   </SafeAreaView>
+    // </View>
   );
 };
 export default HomeTabsRoutes;

@@ -5,7 +5,7 @@ import RoutesNav from 'src/components/RoutesNav';
 import {LogBox} from 'react-native';
 LogBox.ignoreLogs(['new NativeEventEmitter']);
 const App = () => {
-  const {dispatch} = useContext(ContentContext);
+  const {state, dispatch} = useContext(ContentContext);
   useEffect(() => {
     dispatch({
       type: 'userRouterPermissions',
@@ -26,9 +26,9 @@ const App = () => {
   }, []);
   return (
     <View style={{flex: 1}}>
-      <SafeAreaView style={{flex: 0, backgroundColor: 'rgba(10,10,10,0.1)'}} />
+      <SafeAreaView style={{flex: 0, backgroundColor: 'rgba(10,10,10,0.9)'}} />
       <RoutesNav />
-      <SafeAreaView style={{flex: 0, backgroundColor: 'rgba(10,10,10,1)'}} />
+      <SafeAreaView style={{flex: 0, backgroundColor: 'rgba(10,10,10,0.95)'}} />
     </View>
   );
 };
