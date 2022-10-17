@@ -6,7 +6,7 @@ import {
   TouchableOpacity,
   View,
   Dimensions,
-  Image
+  Image,
 } from 'react-native';
 import {launchCamera, launchImageLibrary} from 'react-native-image-picker';
 // import ImageBackground from 'react-native/Libraries/Image/ImageBackground';
@@ -16,7 +16,7 @@ const ImagePicker = () => {
   const options = {
     mediaType: 'photo',
     maxWidth: 800,
-    maxHeight:1200,
+    maxHeight: 1200,
     quality: 100,
     cameraType: 'back',
     includeBase64: true,
@@ -92,9 +92,7 @@ const ImagePicker = () => {
               style={styles.openButton}
               onPress={item.onClick}
               activeOpacity={0.7}>
-              <Text style={styles.buttonTitle}>
-                {item.label}
-              </Text>
+              <Text style={styles.buttonTitle}>{item.label}</Text>
             </TouchableOpacity>
           ))}
         </View>

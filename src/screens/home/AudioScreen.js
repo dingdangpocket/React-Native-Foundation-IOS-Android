@@ -1,5 +1,5 @@
-import React, { useRef, useState } from 'react';
-import { View, Text, StyleSheet, Dimensions } from 'react-native';
+import React, {useRef, useState} from 'react';
+import {View, Text, StyleSheet, Dimensions} from 'react-native';
 import Video from 'react-native-video';
 
 const IncidentDescScreen = () => {
@@ -25,15 +25,15 @@ const IncidentDescScreen = () => {
   };
 
   return (
-    <View style={{ flex: 1 }}>
-      <Text style={{ fontSize: 25 }}>音乐🎵...加载中...请稍后...</Text>
+    <View style={{flex: 1}}>
+      <Text style={{fontSize: 25}}>音乐🎵...加载中...请稍后...</Text>
       <Video
         source={{
           uri: 'https://webfs.ali.kugou.com/202210091844/24e03a82b5812443b407b551ef98317f/KGTX/CLTX001/f08bcaf339aa338ba55434dc2ac53948.mp3',
         }}
         ref={refPlayer} //实例;
-        style={styles.container}//样式;
-        rate={rate}//倍率;
+        style={styles.container} //样式;
+        rate={rate} //倍率;
         paused={paused} // 控制暂停/播放，0 代表暂停paused, 1代表播放normal;
         volume={volume} // 0静音, 1正常，其他数字表示放大倍数;
         muted={false} // true静音，默认false;

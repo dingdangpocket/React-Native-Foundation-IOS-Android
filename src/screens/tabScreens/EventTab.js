@@ -1,14 +1,6 @@
-import React, { useEffect, useRef, useState } from 'react';
-import {
-  View,
-  Text,
-  StyleSheet,
-  Dimensions,
-} from 'react-native';
-import {
-  Camera,
-  useCameraDevices,
-} from 'react-native-vision-camera';
+import React, {useEffect, useRef, useState} from 'react';
+import {View, Text, StyleSheet, Dimensions} from 'react-native';
+import {Camera, useCameraDevices} from 'react-native-vision-camera';
 const EventTab = () => {
   const refCamera = useRef(null);
   const devices = useCameraDevices('wide-angle-camera');

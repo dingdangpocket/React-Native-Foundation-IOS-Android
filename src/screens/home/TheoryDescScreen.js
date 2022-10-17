@@ -1,14 +1,14 @@
 import React from 'react';
-import { View, StyleSheet} from 'react-native';
-import { WebView } from 'react-native-webview';
+import {View, StyleSheet} from 'react-native';
+import {WebView} from 'react-native-webview';
 
 const TheoryDescScreen = () => {
   const injectedJs = `window.alert("参数来自Native:id?10")`;
   return (
-    <View style={{ flex: 1 }}>
+    <View style={{flex: 1}}>
       <WebView
-        style={{ flex: 1 }}
-        source={{ uri: 'https://www.baidu.com' }}
+        style={{flex: 1}}
+        source={{uri: 'https://www.baidu.com'}}
         injectedJavaScriptBeforeContentLoaded={injectedJs}
         javaScriptEnabledAndroid={true}
         javaScriptEnabled={true}

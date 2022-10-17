@@ -29,14 +29,10 @@ const App = () => {
     // NavigationBar.setColor('white')
   }, []);
   return (
-    <SafeAreaView style={styles.container}>
+    <SafeAreaView style={{ flex: 1 }}>
       <RoutesNav />
     </SafeAreaView>
   );
 };
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-  },
-});
+
 export default App;

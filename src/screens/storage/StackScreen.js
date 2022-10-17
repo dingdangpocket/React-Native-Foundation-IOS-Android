@@ -8,7 +8,4 @@ const StackScreen = () => {
     </View>
   );
 };
-
-const styles = StyleSheet.create({});
-
 export default StackScreen;

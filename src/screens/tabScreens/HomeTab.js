@@ -1,4 +1,4 @@
-import { useState, useContext, useEffect } from 'react';
+import {useState, useContext, useEffect} from 'react';
 import {
   View,
   Text,
@@ -10,21 +10,21 @@ import {
   Alert,
 } from 'react-native';
 import Geolocation from '@react-native-community/geolocation';
-import { ContentContext } from "src/context/ContextProvider";
-import NavigationBar from 'react-native-navbar-color'
-const HomeTab = ({ navigation }) => {
-  const { dispatch } = useContext(ContentContext);
+import {ContentContext} from 'src/context/ContextProvider';
+import NavigationBar from 'react-native-navbar-color';
+const HomeTab = ({navigation}) => {
+  const {dispatch} = useContext(ContentContext);
   useEffect(() => {
-    NavigationBar.setColor('white')
+    NavigationBar.setColor('white');
   }, []);
   const [current, setCurrent] = useState(0);
   const [optionList] = useState([
-    { id: 0, content: '集成' },
-    { id: 1, content: '精选' },
-    { id: 2, content: '热门' },
-    { id: 3, content: '示例' },
-    { id: 4, content: '理论' },
-    { id: 5, content: '问题' },
+    {id: 0, content: '集成'},
+    {id: 1, content: '精选'},
+    {id: 2, content: '热门'},
+    {id: 3, content: '示例'},
+    {id: 4, content: '理论'},
+    {id: 5, content: '问题'},
   ]);
   //定位-内部实现是通过HTML5的navigator;
   const requestLocationPermission = async (success, failure) => {
@@ -93,25 +93,21 @@ const HomeTab = ({ navigation }) => {
 
   const onReleaseRoute = () => {
     dispatch({
-      type: "userRouterPermissions",
+      type: 'userRouterPermissions',
       payload: [],
-    })
-    Alert.alert('提示', "路由释放成功,在Wechat页面中测试;", [
-      { text: '确定' }
-    ]);
-  }
+    });
+    Alert.alert('提示', '路由释放成功,在Wechat页面中测试;', [{text: '确定'}]);
+  };
   const onLockRoute = () => {
     dispatch({
-      type: "userRouterPermissions",
-      payload: ["InfoScreen"],
-    })
-    Alert.alert('提示', "路由锁定成功,在Wechat页面中测试;", [
-      { text: '确定' }
-    ]);
-  }
+      type: 'userRouterPermissions',
+      payload: ['InfoScreen'],
+    });
+    Alert.alert('提示', '路由锁定成功,在Wechat页面中测试;', [{text: '确定'}]);
+  };
   return (
-    <View style={{ flex: 1 }}>
-      <ScrollView horizontal={false} >
+    <View style={{flex: 1}}>
+      <ScrollView horizontal={false}>
         <View style={styles.optionArea}>
           <ScrollView
             horizontal={true}
@@ -149,51 +145,50 @@ const HomeTab = ({ navigation }) => {
               activeOpacity={0.9}
               style={styles.btn}
               onPress={() => navigation.navigate('TheoryDescScreen')}>
-              <Text style={{ color: 'white' }}>网页集成</Text>
+              <Text style={{color: 'white'}}>网页集成</Text>
             </TouchableOpacity>
             <TouchableOpacity
               activeOpacity={0.9}
               style={styles.btn}
               onPress={() => navigation.navigate('IncidentDescScreen')}>
-              <Text style={{ color: 'white' }}>视频集成</Text>
+              <Text style={{color: 'white'}}>视频集成</Text>
             </TouchableOpacity>
             <TouchableOpacity
               activeOpacity={0.9}
               style={styles.btn}
               onPress={() => getCurrentPosition()}>
-              <Text style={{ color: 'white' }}>定位集成</Text>
+              <Text style={{color: 'white'}}>定位集成</Text>
             </TouchableOpacity>
             <TouchableOpacity
               activeOpacity={0.9}
               style={styles.btn}
               onPress={() => navigation.navigate('AudioScreen')}>
-              <Text style={{ color: 'white' }}>音频集成</Text>
+              <Text style={{color: 'white'}}>音频集成</Text>
             </TouchableOpacity>
             <TouchableOpacity
               activeOpacity={0.9}
               style={styles.btn}
               onPress={() => navigation.navigate('ImagePicker')}>
-              <Text style={{ color: 'white' }}>访问相册</Text>
+              <Text style={{color: 'white'}}>访问相册</Text>
             </TouchableOpacity>
             <TouchableOpacity
               activeOpacity={0.9}
               style={styles.btn}
               onPress={() => navigation.navigate('ImageSaveScreen')}>
-              <Text style={{ color: 'white' }}>保存图片</Text>
+              <Text style={{color: 'white'}}>保存图片</Text>
             </TouchableOpacity>
             <TouchableOpacity
               activeOpacity={0.9}
               style={styles.btn}
               onPress={onReleaseRoute}>
-              <Text style={{ color: 'white' }}>获取路由权限</Text>
+              <Text style={{color: 'white'}}>获取路由权限</Text>
             </TouchableOpacity>
             <TouchableOpacity
               activeOpacity={0.9}
               style={styles.btn}
               onPress={onLockRoute}>
-              <Text style={{ color: 'white' }}>锁定路由权限</Text>
+              <Text style={{color: 'white'}}>锁定路由权限</Text>
             </TouchableOpacity>
-
           </View>
         ) : null}
         {current == 1 ? <Text>精选</Text> : null}
@@ -290,7 +285,7 @@ const styles = StyleSheet.create({
   },
 
   buttonRow: {
-    flexDirection: "row",
-    marginVertical: 16
-  }
+    flexDirection: 'row',
+    marginVertical: 16,
+  },
 });

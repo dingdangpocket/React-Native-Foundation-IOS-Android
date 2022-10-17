@@ -1,7 +1,15 @@
-import { useState, useRef } from 'react';
-import { View, Button, StyleSheet, Alert, TouchableOpacity, Animated, Text } from 'react-native';
+import {useState, useRef} from 'react';
+import {
+  View,
+  Button,
+  StyleSheet,
+  Alert,
+  TouchableOpacity,
+  Animated,
+  Text,
+} from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-const CommunityTab = ({ navigation }) => {
+const CommunityTab = ({navigation}) => {
   const fade = useRef(new Animated.Value(0)).current;
   const height = useRef(new Animated.Value(0)).current;
   const fadeIn = () => {
@@ -55,29 +63,25 @@ const CommunityTab = ({ navigation }) => {
         onPress={() => navigation.navigate('StackScreen')}></Button>
       <Button title="保存数据AsyncStorage" onPress={() => saveData()}></Button>
       <Button title="获取数据AsyncStorage" onPress={() => getData()}></Button>
-      <TouchableOpacity
-        activeOpacity={0.9}
-        style={styles.btn}
-        onPress={fadeIn}>
-        <Text style={{ color: 'white' }}>Fade In</Text>
+      <TouchableOpacity activeOpacity={0.9} style={styles.btn} onPress={fadeIn}>
+        <Text style={{color: 'white'}}>Fade In</Text>
       </TouchableOpacity>
       <TouchableOpacity
         activeOpacity={0.9}
         style={styles.btn}
         onPress={fadeOut}>
-        <Text style={{ color: 'white' }}>Fade Out</Text>
+        <Text style={{color: 'white'}}>Fade Out</Text>
       </TouchableOpacity>
       <Animated.View
         style={[
           {
-            backgroundColor: "gray"
+            backgroundColor: 'gray',
           },
           {
             opacity: fade, // Bind opacity to animated value
             height: height,
-          }
-        ]}
-      >
+          },
+        ]}>
         <Text>淡入</Text>
       </Animated.View>
     </View>

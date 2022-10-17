@@ -1,7 +1,6 @@
-
 export const useColor = () => {
-    const years = "red"
-    return {
-        years,
-    };
+  const years = 'red';
+  return {
+    years,
+  };
 };
